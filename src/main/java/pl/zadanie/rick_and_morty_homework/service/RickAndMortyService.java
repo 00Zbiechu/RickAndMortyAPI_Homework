@@ -6,8 +6,8 @@ import pl.zadanie.rick_and_morty_homework.model.RickAndMortyDTO;
 
 public interface RickAndMortyService {
 
-    RickAndMortyDTO saveNewCharacter(RickAndMortyDTO rickAndMortyDTO);
-    RickAndMortyDTO askRickAndMortyApi(Long idCharacter);
+//    RickAndMortyDTO saveNewCharacter(RickAndMortyDTO rickAndMortyDTO);
+//    RickAndMortyDTO askRickAndMortyApi(Long idCharacter);
     RickAndMortyDTO checkIfCharacterIsInDatabase(Long id);
 
 

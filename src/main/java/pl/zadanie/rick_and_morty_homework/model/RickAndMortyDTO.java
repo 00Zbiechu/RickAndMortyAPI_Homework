@@ -9,12 +9,13 @@ import lombok.*;
 @AllArgsConstructor
 public class RickAndMortyDTO
 {
-
     Long id;
 
     String name;
 
     String status;
+
+    String type;
 
     String species;
 

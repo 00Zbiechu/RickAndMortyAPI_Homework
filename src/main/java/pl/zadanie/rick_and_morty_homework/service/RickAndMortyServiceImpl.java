@@ -34,23 +34,19 @@ public class RickAndMortyServiceImpl implements RickAndMortyService {
 
     }
 
-    @Override
-    public RickAndMortyDTO saveNewCharacter(RickAndMortyDTO rickAndMortyDTO) {
+    private RickAndMortyDTO saveNewCharacter(RickAndMortyDTO rickAndMortyDTO) {
         RickAndMortyEntity entityToSave = RickAndMortyMapper.INSTANCE.toEntity(rickAndMortyDTO);
         rickAndMortyRepository.save(entityToSave);
         return rickAndMortyDTO;
     }
 
 
-    @Override
-    public RickAndMortyDTO askRickAndMortyApi(Long idCharacter){
+    private RickAndMortyDTO askRickAndMortyApi(Long idCharacter){
 
         RestTemplate restTemplate = new RestTemplate();
 
-        RickAndMortyDTO rickAndMortyDTO = restTemplate
+        return restTemplate
                 .getForObject("https://rickandmortyapi.com/api/character/"+idCharacter, RickAndMortyDTO.class);
-
-        return rickAndMortyDTO;
 
     }
 

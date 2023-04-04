@@ -14,7 +14,6 @@ public class RickAndMortyEntity {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
     String name;
@@ -22,6 +21,8 @@ public class RickAndMortyEntity {
     String status;
 
     String type;
+
+    String species;
 
     String gender;
 
