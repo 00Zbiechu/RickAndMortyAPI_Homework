@@ -19,25 +19,17 @@ public class RickAndMortyServiceImpl implements RickAndMortyService {
     @Override
     public RickAndMortyDTO checkIfCharacterIsInDatabase(Long id){
 
-        Optional<RickAndMortyEntity> optionalRickAndMortyEntity = rickAndMortyRepository.findById(id);
+       RickAndMortyEntity rickAndMortyEntity = rickAndMortyRepository.findById(id)
+               .orElseGet(()->saveNewCharacter(askRickAndMortyApi(id)));
 
-        if(optionalRickAndMortyEntity.isPresent()){
-
-            return RickAndMortyMapper.INSTANCE.toDTO(optionalRickAndMortyEntity.get());
-
-        }else{
-
-            RickAndMortyDTO dto = askRickAndMortyApi(id);
-            return saveNewCharacter(dto);
-
-        }
+       return RickAndMortyMapper.INSTANCE.toDTO(rickAndMortyEntity);
 
     }
 
-    private RickAndMortyDTO saveNewCharacter(RickAndMortyDTO rickAndMortyDTO) {
+    private RickAndMortyEntity saveNewCharacter(RickAndMortyDTO rickAndMortyDTO) {
         RickAndMortyEntity entityToSave = RickAndMortyMapper.INSTANCE.toEntity(rickAndMortyDTO);
         rickAndMortyRepository.save(entityToSave);
-        return rickAndMortyDTO;
+        return entityToSave;
     }
 
 
@@ -47,6 +39,7 @@ public class RickAndMortyServiceImpl implements RickAndMortyService {
 
         return restTemplate
                 .getForObject("https://rickandmortyapi.com/api/character/"+idCharacter, RickAndMortyDTO.class);
+
 
     }
 
