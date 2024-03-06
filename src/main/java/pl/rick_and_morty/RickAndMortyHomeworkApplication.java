@@ -1,4 +1,4 @@
-package pl.zadanie.rick_and_morty_homework;
+package pl.rick_and_morty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,5 +1,4 @@
-package pl.zadanie.rick_and_morty_homework.controller;
-
+package pl.rick_and_morty.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -8,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.zadanie.rick_and_morty_homework.model.RickAndMortyDTO;
-import pl.zadanie.rick_and_morty_homework.service.RickAndMortyService;
+import pl.rick_and_morty.model.RickAndMortyDTO;
+import pl.rick_and_morty.service.RickAndMortyService;
 
 @RestController
 @RequestMapping(value = "/api/rickandmorty")
@@ -19,12 +18,8 @@ public class RickAndMortyController {
     private final RickAndMortyService rickAndMortyService;
 
 
-    @GetMapping(value = "{idCharacter}")
-    public ResponseEntity<RickAndMortyDTO> getCharacter(@PathVariable Long idCharacter){
-
-        return new ResponseEntity<>(rickAndMortyService.checkIfCharacterIsInDatabase(idCharacter), HttpStatus.OK);
-
+    @GetMapping(value = "{characterId}")
+    public ResponseEntity<RickAndMortyDTO> getCharacter(@PathVariable Long characterId) {
+        return new ResponseEntity<>(rickAndMortyService.getCharacter(characterId), HttpStatus.OK);
     }
-
-
 }

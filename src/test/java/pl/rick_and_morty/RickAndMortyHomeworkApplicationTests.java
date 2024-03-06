@@ -1,4 +1,4 @@
-package pl.zadanie.rick_and_morty_homework;
+package pl.rick_and_morty;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,5 +9,4 @@ class RickAndMortyHomeworkApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

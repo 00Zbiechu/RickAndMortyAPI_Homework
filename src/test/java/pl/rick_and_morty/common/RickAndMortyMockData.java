@@ -1,11 +1,11 @@
-package pl.zadanie.rick_and_morty_homework.common;
+package pl.rick_and_morty.common;
 
-import pl.zadanie.rick_and_morty_homework.entity.RickAndMortyEntity;
+import pl.rick_and_morty.entity.RickAndMortyEntity;
 
 public class RickAndMortyMockData {
 
-    public static RickAndMortyEntity prepareMockData(){
-        return  RickAndMortyEntity.builder()
+    public static RickAndMortyEntity prepareMockData() {
+        return RickAndMortyEntity.builder()
                 .id(2L)
                 .gender("TEST")
                 .species("Human")
@@ -15,5 +15,4 @@ public class RickAndMortyMockData {
                 .image("https://rickandmortyapi.com/api/character/avatar/2.jpeg")
                 .build();
     }
-
 }
